@@ -6,7 +6,7 @@
 
 | 编号 | 论文 | 主题 | 阅读状态 | 笔记 |
 | --- | --- | --- | --- | --- |
-| 01 | TimeChat | 长视频时间理解、多模态大模型 | 待读 | [笔记](timechat.md) |
+| 01 | [TimeChat](https://openaccess.thecvf.com/content/CVPR2024/html/Ren_TimeChat_A_Time-sensitive_Multimodal_Large_Language_Model_for_Long_Video_CVPR_2024_paper.html) | 长视频时间理解、多模态大模型 | 待读 | [笔记](timechat.md) |
 
 ## 记录原则
 
