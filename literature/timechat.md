@@ -182,15 +182,32 @@ TimeChat 复用了已完成第一阶段训练的开源检查点，主要进行�
 
 
 ## TimeIT 指令数据（3.2. Instruction Data TimeIT）
+![TimeIT 覆盖的任务与数据集](timeit-task-coverage.png)
 
-TimeIT 是作者为提升 TimeChat 理解时间敏感人类指令能力而构建的、
-以视频为中心的指令微调数据集。
+这张图展示了作者用于构建 TimeIT 的时间相关视频任务与数据集，可以将其理解为 TimeIT 的“任务地图”。
 
-它具有两个特点：
+| 图中英文 | 中文 | 这类任务要模型做什么 | 对应数据集 |
+| --- | --- | --- | --- |
+| Temporal Video Grounding | 时间视频定位 | 根据文字查询，在视频中找出对应事件的时间区间。 | DiDeMo、QueryD、HiREST_grounding、Charades |
+| Step Localization and Captioning | 步骤定位与描述 | 找到步骤发生的时间，并描述该步骤。 | COIN、HiREST_step |
+| Video Summarization | 视频摘要 | 从长视频中提取最能代表整体内容的片段。 | TVSum、SumMe |
+| Transcribed Speech Generation | 转写语音生成 | 生成带时间信息的视频语音转录文本。 | YT-Temporal |
+| Video Highlight Detection | 视频高光检测 | 找出视频中最精彩、最重要的片段。 | QVHighlights |
+| Dense Video Captioning | 密集视频描述 | 识别多个事件，并分别描述它们及其发生时间。 | ActivityNet Captions、ViTT、YouCook2 |
 
-- 整合了多个包含时间戳标注的视频数据集；
-- 视频以长视频为主要特征。
+图中颜色的含义：
+- **黄色实框**：`held-in datasets`，图注称其为纳入 TimeIT 的数据集。
+- **白色虚线框**：`held-out datasets`，图注称其为保留的数据集。
 
+论文后续的实验部分使用 Charades-STA、QVHighlights 和 YouCook2 进行零样本评估。因此，可将白色虚线框理解为用于检验模型泛化能力的 held-out 数据集；具体实验设置以论文第 4.2 节为准。
+
+**此处与我们项目概念部分吻合**
+TimeIT 并不只训练一种视频任务，而是将多种需要建立“视频语义 - 时间戳”对应关系的任务统一为语言指令数据。模型需要学习的不只是“视频中有什么”，还包括：
+- 什么事件发生了；
+- 事件在什么时候发生；
+- 哪些片段更重要；
+- 如何按照用户要求，用自然语言和时间区间组织答案。
+  
 ### 3.2.1 任务覆盖（附录A）
 
 TimeIT 覆盖 6 类长期存在的时间相关视频任务：
