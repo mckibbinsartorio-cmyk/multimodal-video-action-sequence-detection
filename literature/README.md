@@ -4,9 +4,9 @@
 
 ## 阅读进度
 
-| 编号 | 论文 | 主题 | 阅读状态 | 笔记 |
-| --- | --- | --- | --- | --- |
-| 01 | [TimeChat](https://openaccess.thecvf.com/content/CVPR2024/html/Ren_TimeChat_A_Time-sensitive_Multimodal_Large_Language_Model_for_Long_Video_CVPR_2024_paper.html) | 长视频时间理解、多模态大模型 | 待读 | [笔记](timechat.md) |
+| 编号 | 论文 | 主题 | 阅读状态 | 笔记 | 阅读启发 |
+| --- | --- | --- | --- | --- | --- |
+| 01 | [TimeChat](https://openaccess.thecvf.com/content/CVPR2024/html/Ren_TimeChat_A_Time-sensitive_Multimodal_Large_Language_Model_for_Long_Video_CVPR_2024_paper.html) | 长视频时间理解、多模态大模型 | 待读 | [笔记](timechat.md) |也许我们可以基于现有模型，构造我们自己的数据集，仿照他的思路，免去第一阶段较大的训练量，将主要精力放在第二阶段LoRA的参数调节上，让模型学会识别我们的主要动作流（？？单一动作流还是多样化工作流还未知）|
 
 ## 记录原则
 
